@@ -1,6 +1,7 @@
 
 public abstract class ChessPiece {
     private Color color;
+    //this is a test
 
     public ChessPiece() {
 
@@ -48,15 +49,14 @@ public abstract class ChessPiece {
                 aryCoords[1] = 7;
                 break;
         }
-        switch (pieceLocation.charAt(1)){
+        switch (pieceLocation.charAt(1)) {
             case '1':
-                aryCoords[0]=0;
+                aryCoords[0] = 0;
                 break;
             case '2':
-                aryCoords[1]=1;
+                aryCoords[1] = 1;
                 break;
         }
-
 
         return aryCoords;
     }
