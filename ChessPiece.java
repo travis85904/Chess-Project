@@ -1,7 +1,6 @@
 
 public abstract class ChessPiece {
     private Color color;
-    //this is a test
 
     public ChessPiece() {
 
@@ -15,15 +14,19 @@ public abstract class ChessPiece {
 
     }
 
+    public Color getColor(){
+        return color;
+    }
+
     boolean parseMove(String mv) {
         return true;
     }
 
-    public int[] coordsToArray(String pieceLocation, String desiredLocation) {
+    public int[] coordsToArray(String desiredLocation) {
         int[] aryCoords = {0, 0};
-        pieceLocation.toUpperCase();
+        desiredLocation.toUpperCase();
 
-        switch (pieceLocation.charAt(0)) {
+        switch (desiredLocation.charAt(0)) {
             case 'A':
                 aryCoords[1] = 0;
                 break;
@@ -49,15 +52,40 @@ public abstract class ChessPiece {
                 aryCoords[1] = 7;
                 break;
         }
-        switch (pieceLocation.charAt(1)) {
+        switch (desiredLocation.charAt(1)) {
             case '1':
-                aryCoords[0] = 0;
+                aryCoords[0] = 7;
                 break;
             case '2':
-                aryCoords[1] = 1;
+                aryCoords[0] = 6;
+                break;
+            case '3':
+                aryCoords[0] = 5;
+                break;
+            case '4':
+                aryCoords[0] = 4;
+                break;
+            case '5':
+                aryCoords[0] = 3;
+                break;
+            case '6':
+                aryCoords[0] = 2;
+                break;
+            case '7':
+                aryCoords[0] = 1;
+                break;
+            case '8':
+                aryCoords[0] = 0;
                 break;
         }
 
         return aryCoords;
+    }
+
+    @Override
+    public String toString() {
+        if (color==null)
+            return ".";
+        return super.toString();
     }
 }

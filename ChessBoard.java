@@ -37,4 +37,16 @@ public class ChessBoard {
         board[7][6] = new Knight(Color.black);
         board[7][7] = new Rook(Color.black);
     }
+
+    @Override
+    public String toString() {
+        for (int i = 0; i < 8; i++) {
+            for (ChessPiece spot:board[i]) {
+                if (spot==null)
+                    System.out.println(".");
+                System.out.println(spot.toString());
+            }
+        }
+        return board.toString();
+    }
 }

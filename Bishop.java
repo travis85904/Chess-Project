@@ -5,7 +5,7 @@ public class Bishop extends ChessPiece {
         super(color);
     }
 
-    public boolean isMoveLegal() {
+    public boolean legalMove(String moveStr, ChessBoard[][] boards){
         return true;
     }
 }
