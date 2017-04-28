@@ -1,13 +1,12 @@
-// rook == castle
+package chess;
 
 public class Rook extends ChessPiece {
     public Rook(Color color) {
         super(color);
     }
 
-    public boolean legalMove(String moveStr, ChessBoard[][] boards) {
-
-
+    @Override
+    public boolean legalMove(String movStr, ChessPiece[][] board) {
         return true;
     }
 

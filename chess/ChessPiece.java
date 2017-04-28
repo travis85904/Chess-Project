@@ -1,4 +1,6 @@
 
+package chess;
+
 public abstract class ChessPiece {
     protected Color color;
 
@@ -14,9 +16,7 @@ public abstract class ChessPiece {
 
     }
 
-    public Color getColor(){
-        return color;
-    }
+    public abstract boolean legalMove(String movStr, ChessPiece[][] board);
 
     boolean parseMove(String mv) {
         return true;
@@ -84,7 +84,7 @@ public abstract class ChessPiece {
 
     @Override
     public String toString() {
-        if (color==null)
+        if (color == null)
             return ".";
         return super.toString();
     }

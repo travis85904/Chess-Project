@@ -1,11 +1,13 @@
-import sun.text.resources.ja.JavaTimeSupplementary_ja;
+package chess;
 
 public class Bishop extends ChessPiece {
     public Bishop(Color color) {
         super(color);
     }
 
-    public boolean legalMove(String moveStr, ChessBoard[][] boards){
+    @Override
+    public boolean legalMove(String movStr, ChessPiece[][] board) {
+
         return true;
     }
 

@@ -1,8 +1,11 @@
+package chess;
+
 public class King extends ChessPiece {
     public King(Color color){
         super(color);
     }
-    public boolean legalMove(String moveStr, ChessBoard[][] boards){
+    @Override
+    public boolean legalMove(String movStr, ChessPiece[][] board) {
         return true;
     }
 
