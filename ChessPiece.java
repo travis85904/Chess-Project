@@ -1,6 +1,6 @@
 
 public abstract class ChessPiece {
-    private Color color;
+    protected Color color;
 
     public ChessPiece() {
 

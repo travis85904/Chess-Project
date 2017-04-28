@@ -5,4 +5,9 @@ public class Queen extends ChessPiece {
     public boolean legalMove(String moveStr, ChessBoard[][] boards){
         return true;
     }
+
+    @Override
+    public String toString() {
+        return (color == Color.white) ? "Q" : "q";
+    }
 }
