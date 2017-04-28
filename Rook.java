@@ -1,4 +1,4 @@
-import java.util.Random;
+// rook == castle
 
 public class Rook extends ChessPiece {
     public Rook(Color color) {
@@ -6,6 +6,8 @@ public class Rook extends ChessPiece {
     }
 
     public boolean legalMove(String moveStr, ChessBoard[][] boards) {
+
+
         return true;
     }
 
@@ -13,5 +15,5 @@ public class Rook extends ChessPiece {
     public String toString() {
         return (color == Color.white) ? "R" : "r";
     }
-    //j
+
 }

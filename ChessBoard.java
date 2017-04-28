@@ -12,23 +12,7 @@ public class ChessBoard {
         board[0][5] = new Bishop(Color.white);
         board[0][6] = new Knight(Color.white);
         board[0][7] = new Rook(Color.white);
-        board[1][0] = new Pawn(Color.white);
-        board[1][1] = new Pawn(Color.white);
-        board[1][2] = new Pawn(Color.white);
-        board[1][3] = new Pawn(Color.white);
-        board[1][4] = new Pawn(Color.white);
-        board[1][5] = new Pawn(Color.white);
-        board[1][6] = new Pawn(Color.white);
-        board[1][7] = new Pawn(Color.white);
 
-        board[6][0] = new Pawn(Color.black);
-        board[6][1] = new Pawn(Color.black);
-        board[6][2] = new Pawn(Color.black);
-        board[6][3] = new Pawn(Color.black);
-        board[6][4] = new Pawn(Color.black);
-        board[6][5] = new Pawn(Color.black);
-        board[6][6] = new Pawn(Color.black);
-        board[6][7] = new Pawn(Color.black);
         board[7][0] = new Rook(Color.black);
         board[7][1] = new Knight(Color.black);
         board[7][2] = new Bishop(Color.black);
@@ -37,17 +21,31 @@ public class ChessBoard {
         board[7][5] = new Bishop(Color.black);
         board[7][6] = new Knight(Color.black);
         board[7][7] = new Rook(Color.black);
+
+        for (int col = 0; col < 8; col++) {
+            board[1][col] = new Pawn(Color.white);
+        }
+        for (int row = 2; row < 6; row++) {
+            for (int col = 0; col < 8; col++) {
+                board[row][col] = null;
+            }
+        }
+        for (int col = 0; col < 8; col++) {
+            board[6][col] = new Pawn(Color.black);
+        }
     }
 
     @Override
     public String toString() {
         for (int i = 0; i < 8; i++) {
-            for (ChessPiece spot:board[i]) {
-                if (spot==null)
-                    System.out.println(".");
-                System.out.println(spot.toString());
+            for (ChessPiece spot : board[i]) {
+
+                if (spot == null)
+                    System.out.print(".");
+                else System.out.print(spot.toString());
             }
+            System.out.println("\n");
         }
-        return board.toString();
+        return "";
     }
 }
