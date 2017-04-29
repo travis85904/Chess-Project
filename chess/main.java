@@ -11,7 +11,7 @@ public class main {
         int ary[] = ChessUtil.coordsToArray("b2");
         System.out.println(ary[0]+":"+ary[1]);
         move("A6", "A6");
-        ch
+
 
     }
 
