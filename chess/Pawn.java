@@ -6,9 +6,11 @@ public class Pawn extends ChessPiece {
     }
 
     @Override
-    public boolean legalMove(String movStr, ChessPiece[][] board) {
-        return true;
+    public boolean legalMove(ChessPiece[][] board, int[] locationAry, int[] moveAry) {
+        return false;
     }
+
+
 
     @Override
     public String toString() {

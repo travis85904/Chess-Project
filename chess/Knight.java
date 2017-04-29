@@ -5,7 +5,7 @@ public class Knight extends ChessPiece {
         super(color);
     }
     @Override
-    public boolean legalMove(String movStr, ChessPiece[][] board) {
+    public boolean legalMove(ChessPiece[][] board, int[] locationAry, int[] moveAry) {
         return true;
     }
 

@@ -6,7 +6,7 @@ public class Bishop extends ChessPiece {
     }
 
     @Override
-    public boolean legalMove(String movStr, ChessPiece[][] board) {
+    public boolean legalMove(ChessPiece[][] board, int[] locationAry, int[] moveAry) {
 
         return true;
     }

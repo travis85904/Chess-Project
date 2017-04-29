@@ -36,6 +36,17 @@ public class ChessBoard {
         }
     }
 
+    public ChessPiece getPiece(int[] location){
+        int x = location[0];
+        int y = location[1];
+
+        return board[x][y];
+    }
+
+    public void move(ChessPiece piece, int[] coords){
+
+    }
+
     @Override
     public String toString() {
         for (int i = 0; i < 8; i++) {
@@ -43,7 +54,7 @@ public class ChessBoard {
 
                 if (spot == null)
                     System.out.print(".");
-                else System.out.print(spot.toString());
+                else System.out.print(spot);
             }
             System.out.println("\n");
         }
