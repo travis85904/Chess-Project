@@ -7,17 +7,15 @@ public class Rook extends ChessPiece {
     }
 
     @Override
-    public boolean legalMove(ChessPiece[][] board, int[] locationAry, int[] moveAry) throws Exception {
-        int locX = locationAry[0];//location of the piece to be moved
-        int locY = locationAry[1];
-        int movX = moveAry[0];//desired location to move the piece to
-        int movY = moveAry[1];
+    public boolean legalMove(ChessPiece[][] board, int locX, int locY, int movX, int movY) throws Exception {
 
         if (locX != movX && locY != movY)//checks that the rook is only moving along 1 axis
             throw new Exception("Rooks can only move along 1 axis per move");
-        checkPath(board, locX, locY, movX, movY);
+
+        //checkPath(board, locX, locY, movX, movY);
 
         return true;
+
     }
 
     public boolean checkPath(ChessPiece[][] board, int locX, int locY, int movX, int movY) throws Exception {

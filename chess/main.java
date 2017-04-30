@@ -5,10 +5,11 @@ public class main {
     private static ChessBoard chessBoard = new ChessBoard();
 
     public static void main(String[] args) throws Exception {
-        System.out.println(chessBoard);
+
 
         chessBoard.setPiece(1,0,null);
         move("a8", "a5");
+        System.out.println(chessBoard);
         chessBoard.setPiece(3,1,new Rook(Color.black));
         move("a5", "c5");
 

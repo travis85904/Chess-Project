@@ -1,7 +1,5 @@
 package chess;
 
-import javax.sound.midi.SoundbankResource;
-
 public class ChessBoard {
     private ChessPiece[][] board = new ChessPiece[8][8];
 
@@ -39,7 +37,6 @@ public class ChessBoard {
     }
 
     public ChessPiece getPiece(int x, int y) {
-
         return board[x][y];
     }
 
@@ -52,15 +49,21 @@ public class ChessBoard {
         int locY = locationAry[1];
         int movX = moveAry[0];//desired location to move the piece to
         int movY = moveAry[1];
-        ChessPiece piece = getPiece(locX,locY);
+        ChessPiece piece = getPiece(locX, locY);
 
-        if (checkSpot(locX, locY, movX, movY)&&piece.legalMove(board, locationAry, moveAry)) {
-
-                board[movX][movY] = board[locX][locY];
-                board[locX][locY] = null;
-
+        if (checkSpot(locX, locY, movX, movY))
+        {
+            if (piece.legalMove(board, locX, locY, movX, movY))
+            {
+                if (piece.checkPath(board, locX, locY, movX, movY))
+                {
+                    board[movX][movY] = board[locX][locY];
+                    board[locX][locY] = null;
+                }
+            }
         }
     }
+
 
     public boolean checkSpot(int locX, int locY, int movX, int movY) throws Exception {
         if (movX == locX && movY == locY) { // Make sure the move location is not the same as the piece location
