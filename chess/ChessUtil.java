@@ -2,6 +2,7 @@ package chess;
 
 public class ChessUtil {
 
+
     public static int[] coordsToArray(String desiredLocation) {
         desiredLocation = desiredLocation.toUpperCase();
         int[] aryCoords = {0, 0};
@@ -62,65 +63,4 @@ public class ChessUtil {
 
         return aryCoords;
     }
-//    public static String coordsToArray(String desiredLocation) {
-//        int[] aryCoords = {0, 0};
-//
-//        desiredLocation = desiredLocation.toUpperCase();
-//        StringBuilder sb = new StringBuilder();
-//        switch (desiredLocation.charAt(1)) {
-//            case '1':
-//                sb.append('7');
-//                break;
-//            case '2':
-//                sb.append('6');
-//                break;
-//            case '3':
-//                sb.append('5');
-//                break;
-//            case '4':
-//                sb.append('4');
-//                break;
-//            case '5':
-//                sb.append('3');
-//                break;
-//            case '6':
-//                sb.append('2');
-//                break;
-//            case '7':
-//                sb.append('1');
-//                break;
-//            case '8':
-//                sb.append('0');
-//                break;
-//        }
-//        switch (desiredLocation.charAt(0)) {
-//            case 'A':
-//                sb=sb.append('0');
-//                break;
-//            case 'B':
-//                sb=sb.append('1');
-//                break;
-//            case 'C':
-//                sb=sb.append('2');
-//                break;
-//            case 'D':
-//                sb=sb.append('3');
-//                break;
-//            case 'E':
-//                sb=sb.append('4');
-//                break;
-//            case 'F':
-//                sb=sb.append('5');
-//                break;
-//            case 'G':
-//                sb=sb.append('6');
-//                break;
-//            case 'H':
-//                sb=sb.append('7');
-//                break;
-//        }
-//
-//
-//        return sb.toString();
-//    }
 }

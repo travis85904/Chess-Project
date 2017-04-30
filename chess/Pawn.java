@@ -7,6 +7,7 @@ public class Pawn extends ChessPiece {
 
     @Override
     public boolean legalMove(ChessPiece[][] board, int[] locationAry, int[] moveAry) {
+
         return false;
     }
 

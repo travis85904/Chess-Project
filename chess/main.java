@@ -1,21 +1,24 @@
 package chess;
 
-import java.util.HashMap;
-
 public class main {
-    static HashMap<Character, Integer> coords;
+
     private static ChessBoard chessBoard = new ChessBoard();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         System.out.println(chessBoard);
-        int ary[] = ChessUtil.coordsToArray("b2");
-        System.out.println(ary[0]+":"+ary[1]);
-        move("A6", "A6");
 
+        chessBoard.setPiece(1,0,null);
+        move("a8", "a5");
+        chessBoard.setPiece(3,1,new Rook(Color.black));
+        move("a5", "c5");
 
+        System.out.println(chessBoard);
     }
 
-    public static void move(String pieceLocation, String move) {
+    public static void move(String pieceLocation, String move) throws Exception {
+        int[] locationAry = ChessUtil.coordsToArray(pieceLocation);
+        int[] moveAry = ChessUtil.coordsToArray(move);
+        chessBoard.move(locationAry, moveAry);
 
     }
 }

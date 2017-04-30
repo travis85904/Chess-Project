@@ -12,12 +12,7 @@ public abstract class ChessPiece {
         this.color = color;
     }
 
-    void move(ChessPiece[][] board, int[][]currentPosition, int[][] desiredPosition) {
-
-    }
-
-    //public abstract boolean legalMove(String movStr, ChessPiece[][] board);
-    public abstract boolean legalMove(ChessPiece[][] board, int[] locationAry, int[] moveAry);
+    public abstract boolean legalMove(ChessPiece[][] board, int[] locationAry, int[] moveAry) throws Exception;
 
     boolean parseMove(String mv) {
         return true;
