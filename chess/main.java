@@ -1,7 +1,10 @@
+//Travis Davis
+//Kevin Blair
+
 package chess;
 
 public class main {
-//from kevins pc
+
     private static ChessBoard chessBoard = new ChessBoard();
 
     public static void main(String[] args) throws Exception {
