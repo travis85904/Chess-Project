@@ -49,14 +49,13 @@ public class ChessBoard {
         int locY = locationAry[1];
         int movX = moveAry[0];//desired location to move the piece to
         int movY = moveAry[1];
+
         ChessPiece piece = getPiece(locX, locY);
 
-        if (checkSpot(locX, locY, movX, movY))
-        {
-            if (piece.legalMove(board, locX, locY, movX, movY))
-            {
-                if (piece.checkPath(board, locX, locY, movX, movY))
-                {
+        if (checkSpot(locX, locY, movX, movY)) {
+            if (piece.legalMove(board, locX, locY, movX, movY)) {
+                if (piece.checkPath(board, locX, locY, movX, movY)) {
+                    checkCapture(movX, movY);
                     board[movX][movY] = board[locX][locY];
                     board[locX][locY] = null;
                 }
@@ -64,30 +63,37 @@ public class ChessBoard {
         }
     }
 
+    public void checkCapture(int movX, int movY) {
+        if (board[movX][movY] != null) { //Check if there a piece at movX, movY that will be captured
+            System.out.println("You captured " + board[movX][movY]);
+        }
+    }
 
     public boolean checkSpot(int locX, int locY, int movX, int movY) throws Exception {
         if (movX == locX && movY == locY) { // Make sure the move location is not the same as the piece location
             throw new Exception("ERROR: The piece is already in the specified location");
         } else if (board[locX][locY] == null) { //Check that a piece is at locX, locY
             throw new Exception("ERROR: No piece exists in the specified location");
-        } else if (board[movX][movY] != null) { //Check that there is not a piece at movX, movY
-            throw new Exception("ERROR: You can't move there. A piece is already in that location");
-        } else return true;
+        }
 
-        //return false;
+        return true;
     }
 
     @Override
     public String toString() {
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < 8; i++) {
             for (ChessPiece spot : board[i]) {
-
                 if (spot == null)
-                    System.out.print(".");
-                else System.out.print(spot);
+                    //System.out.print(".");
+                    sb.append(".");
+                    //else System.out.print(spot);
+                else sb.append(spot);
             }
-            System.out.println("\n");
+            //System.out.println("\n");
+            sb.append("\n");
         }
-        return "";
+        String board = sb.toString();
+        return board;
     }
 }

@@ -11,7 +11,7 @@ public class main {
         move("a8", "a5");
         System.out.println(chessBoard);
         chessBoard.setPiece(3,1,new Rook(Color.black));
-        move("a5", "c5");
+        move("a5", "b5");
 
         System.out.println(chessBoard);
     }
