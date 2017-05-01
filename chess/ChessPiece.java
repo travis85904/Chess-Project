@@ -18,9 +18,9 @@ public abstract class ChessPiece {
 
     public abstract boolean checkPath(ChessPiece[][] board, int locX, int locY, int movX, int movY) throws Exception;
 
-//    boolean parseMove(String mv) {
-//        return true;
-//    }
+    public Color getColor() {
+        return color;
+    }
 
     @Override
     public String toString() {

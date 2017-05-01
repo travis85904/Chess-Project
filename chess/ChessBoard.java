@@ -4,7 +4,7 @@ public class ChessBoard {
     private ChessPiece[][] board = new ChessPiece[8][8];
 
     public ChessBoard() {
-        //blah
+
         board[0][0] = new Rook(Color.white);
         board[0][1] = new Knight(Color.white);
         board[0][2] = new Bishop(Color.white);
@@ -36,6 +36,14 @@ public class ChessBoard {
         }
     }
 
+    public void clearBoard() {
+        for (int row = 0; row < 8; row++) {
+            for (int col = 0; col < 8; col++) {
+                board[row][col] = null;
+            }
+        }
+    }
+
     public ChessPiece getPiece(int x, int y) {
         return board[x][y];
     }
@@ -55,18 +63,24 @@ public class ChessBoard {
         if (checkSpot(locX, locY, movX, movY)) {
             if (piece.legalMove(board, locX, locY, movX, movY)) {
                 if (piece.checkPath(board, locX, locY, movX, movY)) {
-                    checkCapture(movX, movY);
-                    board[movX][movY] = board[locX][locY];
-                    board[locX][locY] = null;
+                    if (checkLegalCapture(locX, locY, movX, movY)){
+                        System.out.println("You captured " + board[movX][movY]);
+                        board[movX][movY] = board[locX][locY];
+                        board[locX][locY] = null;
+                    }
                 }
             }
         }
     }
 
-    public void checkCapture(int movX, int movY) {
-        if (board[movX][movY] != null) { //Check if there a piece at movX, movY that will be captured
-            System.out.println("You captured " + board[movX][movY]);
+    public boolean checkLegalCapture(int locX, int locY, int movX, int movY) throws Exception {
+
+        if (board[locX][locY].getColor() != board[movX][movY].getColor()) { //Check if there a piece at movX, movY that will be captured
+            return true;
+        } else if (board[locX][locY].getColor() == board[movX][movY].getColor()) {
+            throw new Exception("You can't capture your own piece!");
         }
+        return false;
     }
 
     public boolean checkSpot(int locX, int locY, int movX, int movY) throws Exception {

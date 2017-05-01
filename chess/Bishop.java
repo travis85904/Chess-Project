@@ -24,16 +24,16 @@ public class Bishop extends ChessPiece {
     public boolean checkPath(ChessPiece[][] board, int locX, int locY, int movX, int movY) throws Exception {
         if (movX > locX) {
             if (movY > locY) {
-                for (int i = locX; i < movX; i++) {
-                    for (int j = locY; j < movY; j++) {
-                        if (board[locX][locY] != null)
+                for (int i = locX+1; i < movX; i++) {
+                    for (int j = locY+1; j < movY; j++) {
+                        if (board[i][j] != null)
                             throw new Exception("There is a piece in bishop's path");
                     }
                 }
             } else if (movY < locY) {
-                for (int i = locX; i < movX; i++) {
-                    for (int j = locY; j > movY; j--) {
-                        if (board[locX][locY] != null)
+                for (int i = locX+1; i < movX; i++) {
+                    for (int j = locY-1; j > movY; j--) {
+                        if (board[i][j] != null)
                             throw new Exception("There is a piece in bishop's path");
                     }
                 }
@@ -41,22 +41,22 @@ public class Bishop extends ChessPiece {
         }
         if (movX < locX) {
             if (movY > locY) {
-                for (int i = locX; i > movX; i--) {
-                    for (int j = locY; j < movY; j++) {
-                        if (board[locX][locY] != null)
+                for (int i = locX-1; i > movX; i--) {
+                    for (int j = locY+1; j < movY; j++) {
+                        if (board[i][j] != null)
                             throw new Exception("There is a piece in bishop's path");
                     }
                 }
             } else if (movY < locY) {
-                for (int i = locX; i > movX; i--) {
-                    for (int j = locY; j > movY; j--) {
-                        if (board[locX][locY] != null)
+                for (int i = locX-1; i > movX; i--) {
+                    for (int j = locY-1; j > movY; j--) {
+                        if (board[i][j] != null)
                             throw new Exception("There is a piece in bishop's path");
                     }
                 }
             }
         }
-        return false;
+        return true;
     }
 
     @Override
