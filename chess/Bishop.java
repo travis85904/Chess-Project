@@ -13,7 +13,8 @@ public class Bishop extends ChessPiece {
                     return true;
                 }
                 if (Math.abs(movX - locX) != Math.abs(movY - locY)) {
-                    throw new Exception("Bishops can only move diagonally.");
+                    //throw new Exception("Bishops can only move diagonally.");
+                    return false;
                 }
             }
         }
@@ -27,14 +28,16 @@ public class Bishop extends ChessPiece {
                 for (int i = locX+1; i < movX; i++) {
                     for (int j = locY+1; j < movY; j++) {
                         if (board[i][j] != null)
-                            throw new Exception("There is a piece in bishop's path");
+                            //throw new Exception("There is a piece in bishop's path");
+                            return false;
                     }
                 }
             } else if (movY < locY) {
                 for (int i = locX+1; i < movX; i++) {
                     for (int j = locY-1; j > movY; j--) {
                         if (board[i][j] != null)
-                            throw new Exception("There is a piece in bishop's path");
+                            //throw new Exception("There is a piece in bishop's path");
+                            return false;
                     }
                 }
             }
@@ -44,14 +47,16 @@ public class Bishop extends ChessPiece {
                 for (int i = locX-1; i > movX; i--) {
                     for (int j = locY+1; j < movY; j++) {
                         if (board[i][j] != null)
-                            throw new Exception("There is a piece in bishop's path");
+                            //throw new Exception("There is a piece in bishop's path");
+                            return false;
                     }
                 }
             } else if (movY < locY) {
                 for (int i = locX-1; i > movX; i--) {
                     for (int j = locY-1; j > movY; j--) {
                         if (board[i][j] != null)
-                            throw new Exception("There is a piece in bishop's path");
+                            //throw new Exception("There is a piece in bishop's path");
+                            return false;
                     }
                 }
             }

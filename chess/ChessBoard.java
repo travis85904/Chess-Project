@@ -60,16 +60,12 @@ public class ChessBoard {
 
         ChessPiece piece = getPiece(locX, locY);
 
-        if (checkSpot(locX, locY, movX, movY)) {
-            if (piece.legalMove(board, locX, locY, movX, movY)) {
-                if (piece.checkPath(board, locX, locY, movX, movY)) {
-                    if (checkLegalCapture(locX, locY, movX, movY)){
-                        System.out.println("You captured " + board[movX][movY]);
-                        board[movX][movY] = board[locX][locY];
-                        board[locX][locY] = null;
-                    }
-                }
-            }
+        if (checkSpot(locX, locY, movX, movY) && piece.legalMove(board, locX, locY, movX, movY) && piece.checkPath(board, locX, locY, movX, movY)) {
+            if (board[movX][movY] != null && checkLegalCapture(locX, locY, movX, movY))
+                System.out.println("You captured " + board[movX][movY]);
+
+            board[movX][movY] = board[locX][locY];
+            board[locX][locY] = null;
         }
     }
 
@@ -78,16 +74,22 @@ public class ChessBoard {
         if (board[locX][locY].getColor() != board[movX][movY].getColor()) { //Check if there a piece at movX, movY that will be captured
             return true;
         } else if (board[locX][locY].getColor() == board[movX][movY].getColor()) {
-            throw new Exception("You can't capture your own piece!");
+            System.out.println("You can't capture your own piece!");
+            return false;
+            //throw new Exception("You can't capture your own piece!");
         }
         return false;
     }
 
     public boolean checkSpot(int locX, int locY, int movX, int movY) throws Exception {
         if (movX == locX && movY == locY) { // Make sure the move location is not the same as the piece location
-            throw new Exception("ERROR: The piece is already in the specified location");
+            //throw new Exception("ERROR: The piece is already in the specified location");
+            System.out.println("ERROR: The piece is already in the specified location");
+            return false;
         } else if (board[locX][locY] == null) { //Check that a piece is at locX, locY
-            throw new Exception("ERROR: No piece exists in the specified location");
+            //throw new Exception("ERROR: No piece exists in the specified location");
+            System.out.println("ERROR: No piece exists in the specified location");
+            return false;
         }
 
         return true;

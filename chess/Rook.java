@@ -10,8 +10,8 @@ public class Rook extends ChessPiece {
     public boolean legalMove(ChessPiece[][] board, int locX, int locY, int movX, int movY) throws Exception {
 
         if (locX != movX && locY != movY)//checks that the rook is only moving along 1 axis
-            throw new Exception("Rooks can only move along 1 axis per move");
-
+            //throw new Exception("Rooks can only move along 1 axis per move");
+            return false;
         checkPath(board, locX, locY, movX, movY);
 
         return true;
@@ -23,13 +23,15 @@ public class Rook extends ChessPiece {
             if (locX > movX) {
                 for (int i = (locX - 1); i > movX; i--) {
                     if (board[i][locY] != null) {
-                        throw new Exception("There is a piece in your path at array location " + i + "," + locY);
+                        //throw new Exception("There is a piece in your path at array location " + i + "," + locY);
+                        return false;
                     }
                 }
             } else if (locX < movX) {
                 for (int i = (locX + 1); i < movX; i++) {
                     if (board[i][locY] != null) {
-                        throw new Exception("There is a piece in your path at array location " + i + "," + locY);
+                        //throw new Exception("There is a piece in your path at array location " + i + "," + locY);
+                        return false;
                     }
                 }
             }
@@ -37,13 +39,15 @@ public class Rook extends ChessPiece {
             if (locY > movY) {
                 for (int i = (locY - 1); i > movY; i--) {
                     if (board[locX][i] != null) {
-                        throw new Exception("There is a piece in your path at array location " + locX + "," + i);
+                        //throw new Exception("There is a piece in your path at array location " + locX + "," + i);
+                        return false;
                     }
                 }
             } else if (locY < movY) {
                 for (int i = (locY + 1); i < movY; i++) {
                     if (board[locX][i] != null) {
-                        throw new Exception("There is a piece in your path at array location " + locX + "," + i);
+                        //throw new Exception("There is a piece in your path at array location " + locX + "," + i);
+                        return false;
                     }
                 }
             }

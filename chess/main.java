@@ -11,7 +11,7 @@ public class main {
 
         System.out.println(chessBoard);
         chessBoard.setPiece(5,3, new Bishop(Color.white));
-        move("d3","c2");
+        move("d3","d7");
 
 
         System.out.println(chessBoard);
